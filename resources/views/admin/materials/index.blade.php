@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <a class="btn btn-success" href="#">Add new material</a>
+                        <a class="btn btn-success" href="{{ action('MaterialController@create') }}">Add new material</a>
                         <table class="table table-responsive">
                             <thead>
                             <tr>
@@ -23,7 +23,11 @@
                                 <tr>
                                     <td>{{ $material->name }}</td>
                                     <td class="text-right">
-                                        <a class="btn btn-danger" href="#">Delete</a>
+                                        <form action="{{ action('MaterialController@destroy', ['material' => $material]) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

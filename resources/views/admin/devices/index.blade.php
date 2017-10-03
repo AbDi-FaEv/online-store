@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <a class="btn btn-success" href="#">Add new device</a>
+                        <a class="btn btn-success" href="{{ action('DeviceController@create') }}">Add new device</a>
                         <table class="table table-responsive">
                             <thead>
                             <tr>
@@ -21,10 +21,17 @@
                             <tbody>
                             @foreach($devices as $device)
                                 <tr>
-                                    <td>{{ $device->name }}</td>
-                                    <td class="text-right">
-                                        <a class="btn btn-primary" href="{{ action('DeviceController@show', ['id' => $device->id]) }}">View</a>
-                                        <a class="btn btn-danger" href="#">Delete</a>
+                                    <td>
+                                        <a class="" href="{{ action('DeviceController@show', ['id' => $device->id]) }}">{{ $device->name }}</a>
+                                    </td>
+                                    <td>
+                                       <div class="text-right">
+                                           <form action="{{ action('DeviceController@destroy', ['material' => $device]) }}" method="POST">
+                                               {{ csrf_field() }}
+                                               {{ method_field('DELETE') }}
+                                               <button style="display: inline" class="btn btn-danger" type="submit">Delete</button>
+                                           </form>
+                                       </div>
                                     </td>
                                 </tr>
                             @endforeach

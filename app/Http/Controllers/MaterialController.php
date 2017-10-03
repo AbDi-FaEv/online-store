@@ -26,7 +26,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.materials.add');
     }
 
     /**
@@ -37,7 +37,11 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $material = new Material();
+        $material->name = $request->name;
+        $material->save();
+
+        return redirect()->action('MaterialController@index');
     }
 
     /**
@@ -82,6 +86,7 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
-        //
+        Material::destroy($material->id);
+        return redirect()->action('MaterialController@index');
     }
 }

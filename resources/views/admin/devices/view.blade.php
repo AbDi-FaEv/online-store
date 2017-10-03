@@ -19,17 +19,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($models as $model)
-                                    <tr>
-                                        <td>
-                                            {{ $model->name }}
-                                        </td>
-                                        <td class="text-right">
-                                            <a class="btn btn-primary" href="#">View</a>
-                                            <a class="btn btn-danger" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                @if (count($models) == 0)
+                                    <h4>No models for this device</h4>
+                                @else
+                                    @foreach($models as $model)
+                                        <tr>
+                                            <td>
+                                                {{ $model->name }}
+                                            </td>
+                                            <td class="text-right">
+                                                <a class="btn btn-primary" href="#">View</a>
+                                                <a class="btn btn-danger" href="#">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>

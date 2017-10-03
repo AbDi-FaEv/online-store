@@ -28,7 +28,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.devices.add');
     }
 
     /**
@@ -39,7 +39,11 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $device = new Device();
+        $device->name = $request->name;
+        $device->save();
+
+        return redirect()->action('DeviceController@index');
     }
 
     /**
@@ -88,6 +92,8 @@ class DeviceController extends Controller
      */
     public function destroy(Device $device)
     {
-        //
+        Device::destroy($device->id);
+
+        return redirect()->action('DeviceController@index');
     }
 }
