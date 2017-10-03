@@ -43,9 +43,6 @@
                         <a href="{{ action('DeviceController@index') }}">Devices</a>
                     </li>
                     <li>
-                        <a href="{{ action('TypeController@index') }}">Models</a>
-                    </li>
-                    <li>
                         <a href="{{ action('MaterialController@index') }}">Materials</a>
                     </li>
                     <li>

@@ -14,7 +14,9 @@ class CoverController extends Controller
      */
     public function index()
     {
-        return view('admin.covers.index');
+        $covers = Cover::all();
+
+        return view('admin.covers.index', compact('covers'));
     }
 
     /**

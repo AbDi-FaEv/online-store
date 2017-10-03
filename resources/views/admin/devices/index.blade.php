@@ -10,6 +10,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
+                        <a class="btn btn-success" href="#">Add new device</a>
                         <table class="table table-responsive">
                             <thead>
                             <tr>
@@ -22,6 +23,7 @@
                                 <tr>
                                     <td>{{ $device->name }}</td>
                                     <td class="text-right">
+                                        <a class="btn btn-primary" href="{{ action('DeviceController@show', ['id' => $device->id]) }}">View</a>
                                         <a class="btn btn-danger" href="#">Delete</a>
                                     </td>
                                 </tr>

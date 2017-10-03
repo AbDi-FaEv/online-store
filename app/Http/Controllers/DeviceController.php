@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Device;
+use App\Type;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
@@ -43,12 +45,16 @@ class DeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Device  $device
+     * @param $id
      * @return \Illuminate\Http\Response
+     * @internal param Device $device
      */
-    public function show(Device $device)
+    public function show($id)
     {
-        //
+        $device = Device::findOrFail($id);
+        $models = Type::where('device_id', $device->id)->get();
+
+        return view('admin.devices.view', compact('device', 'models'));
     }
 
     /**
