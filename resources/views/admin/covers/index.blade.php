@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <a class="btn btn-success" href="#">Add new cover</a>
+                        <a class="btn btn-success" href="{{ action('') }}">Add new cover</a>
                         <table class="table table-responsive">
                             <thead>
                             <tr>

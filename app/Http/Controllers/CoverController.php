@@ -26,7 +26,8 @@ class CoverController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.covers.add');
     }
 
     /**
@@ -37,7 +38,8 @@ class CoverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return redirect()->action('CoverController@index');
     }
 
     /**
@@ -48,7 +50,8 @@ class CoverController extends Controller
      */
     public function show(Cover $cover)
     {
-        //
+
+        return view('admin.covers.view');
     }
 
     /**
@@ -59,7 +62,8 @@ class CoverController extends Controller
      */
     public function edit(Cover $cover)
     {
-        //
+
+        return view('admin.covers.edit');
     }
 
     /**
@@ -71,7 +75,8 @@ class CoverController extends Controller
      */
     public function update(Request $request, Cover $cover)
     {
-        //
+
+        return redirect()->action('CoverController@index');
     }
 
     /**
@@ -82,6 +87,7 @@ class CoverController extends Controller
      */
     public function destroy(Cover $cover)
     {
-        //
+
+        return redirect()->action('CoverController@index');
     }
 }
