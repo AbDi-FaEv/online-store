@@ -6,6 +6,7 @@ use App\Cover;
 use App\Device;
 use App\Material;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CoverController extends Controller
 {
@@ -42,7 +43,14 @@ class CoverController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+//        dd($request->all());
+        $cover = new Cover();
+        $cover->name = $request->name;
+        $cover->tag = $request->tag;
+        $cover->material_id = $request->material;
+
+        $image = Image::make($request->image)->save('public/images/' . $request->tag . '-' . $request->material);
+        dd($image);
         return redirect()->action('CoverController@index');
     }
 
