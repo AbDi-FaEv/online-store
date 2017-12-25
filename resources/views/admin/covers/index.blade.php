@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <a class="btn btn-success" href="{{ action('') }}">Add new cover</a>
+                        <a class="btn btn-success" href="{{ action('CoverController@create') }}">Add new cover</a>
                         <table class="table table-responsive">
                             <thead>
                             <tr>
@@ -27,7 +27,7 @@
                                     <td>{{ $cover->material->name }}</td>
                                     <td>{{ $cover->price }}</td>
                                     <td class="text-right">
-                                        <a class="btn btn-primary" href="#">View</a>
+                                        <a class="btn btn-primary" href="{{ action('CoverController@show', ['id' => $cover->id]) }}">View</a>
                                         <a class="btn btn-danger" href="#">Delete</a>
                                     </td>
                                 </tr>

@@ -10,7 +10,8 @@
                         </div>
                     </div>
                     <div class="panel-body">
-
+                        <h2>{{ $cover->name }}</h2>
+                        <img src="{{ $cover->image }}">
                     </div>
                 </div>
             </div>

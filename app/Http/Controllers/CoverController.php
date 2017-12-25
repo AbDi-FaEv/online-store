@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cover;
+use App\Device;
+use App\Material;
 use Illuminate\Http\Request;
 
 class CoverController extends Controller
@@ -26,8 +28,10 @@ class CoverController extends Controller
      */
     public function create()
     {
+        $devices = Device::all();
+        $materials = Material::all();
 
-        return view('admin.covers.add');
+        return view('admin.covers.add', compact('devices', 'materials'));
     }
 
     /**
@@ -38,7 +42,7 @@ class CoverController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request);
         return redirect()->action('CoverController@index');
     }
 
@@ -48,10 +52,11 @@ class CoverController extends Controller
      * @param  \App\Cover  $cover
      * @return \Illuminate\Http\Response
      */
-    public function show(Cover $cover)
+    public function show($id)
     {
-
-        return view('admin.covers.view');
+        $cover = Cover::findOrFail($id);
+//        dd($cover);
+        return view('admin.covers.view', compact('cover'));
     }
 
     /**
