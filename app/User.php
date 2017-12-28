@@ -31,4 +31,15 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    public function covers()
+    {
+        return $this->belongsToMany('App\Cover', 'user_cover');
+    }
+
+    public function hasCover($coverId)
+    {
+
+        return $this->covers->contains($coverId);
+    }
 }

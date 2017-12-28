@@ -15,12 +15,16 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::get('/', 'AdminController@index');
+Route::group(['middleware' => 'auth'],  function () {
 
-    // Routes for all resources
-    Route::resource('devices', 'DeviceController');
-    Route::resource('covers', 'CoverController');
-    Route::resource('materials', 'MaterialController');
-    Route::resource('types', 'TypeController');
+    Route::get('/buy/{id}', 'HomeController@buy');
+
+    Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+        Route::get('/', 'AdminController@index');
+        // Routes for all resources
+        Route::resource('devices', 'DeviceController');
+        Route::resource('covers', 'CoverController');
+        Route::resource('materials', 'MaterialController');
+        Route::resource('types', 'TypeController');
+    });
 });

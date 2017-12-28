@@ -14,4 +14,14 @@ class Cover extends Model
 
         return $this->belongsTo('App\Material');
     }
+
+    public function devices() {
+
+        return $this->belongsToMany('App\Device', 'device_cover');
+    }
+
+    public function users() {
+
+        return $this->belongsToMany('App\User', 'user_cover');
+    }
 }

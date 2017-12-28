@@ -13,4 +13,8 @@ class Device extends Model
     public function types() {
         return $this->hasMany('App\Type');
     }
+
+    public function covers() {
+        return $this->belongsToMany('App\Cover', 'device_cover');
+    }
 }

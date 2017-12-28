@@ -1,0 +1,14 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 6fr);
+    grid-auto-rows: auto;
+    grid-gap: 5px;
+}
+.grid_header {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: auto;
+}
+.left-col {
+    text-align: right;
+}
